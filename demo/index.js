@@ -1,4 +1,5 @@
 const Query = require('..')
+
 const query = Query()
 
 function ranked(_) {
