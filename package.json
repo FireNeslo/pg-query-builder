@@ -1,13 +1,16 @@
 {
   "name": "pg-query-builder",
+  "title": "PGQueryBuilder",
   "version": "1.0.0",
-  "description": "",
+  "description": "A query builder made only for postgres",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "compile": "projectz compile",
+    "posttest": "npm run compile"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Øystein Ø. Olsen <fireneslo@gmail.com> (https://github.com/FireNeslo)",
+  "license": "MIT",
   "browserify": {
     "transform": [
       [
@@ -20,6 +23,10 @@
         }
       ]
     ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/FireNeslo/pg-query-builder.git"
   },
   "dependencies": {
     "budo": "^10.0.3",
@@ -34,6 +41,14 @@
     "babelify": "^7.3.0",
     "chai": "^3.5.0",
     "cli-highlight": "^1.1.4",
-    "mocha": "^3.2.0"
+    "mocha": "^3.2.0",
+    "projectz": "^1.4.0"
+  },
+  "maintainers": [],
+  "contributors": [
+    "Øystein Ø. Olsen <fireneslo@gmail.com> (https://github.com/FireNeslo)"
+  ],
+  "bugs": {
+    "url": "https://github.com/FireNeslo/pg-query-builder/issues"
   }
 }

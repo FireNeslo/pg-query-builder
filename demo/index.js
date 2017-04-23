@@ -2,34 +2,26 @@ const Query = require('..')
 
 const query = Query()
 
-function ranked(_) {
-  return query('real_team_memberships')
+function attachments(_) {
+  return query('posts')
     .select([
-      'real_team_memberships.id',
-      'real_team_memberships.position',
-      'real_team_memberships.real_team_id',
-      'SUM(score)'
+      'posts.id',
+      'posts.author_id',
+      'posts.attachment_id',
+      'SUM(attachements.size)'
     ])
-    .join('real_player_matches', ['real_player_id', 'season_id'])
-    .join('match_in_collections', ['real_match_id'])
-    .join('tournaments', ['match_collection_id'])
-    .join('match_collections', 'match_collections.id', 'match_collection_id')
+    .join('attachements', ['user_id'])
     .where({
-      'real_player_matches.gameweek': 15,
-      'season_id': 'ANY(season_ids)',
-      'tournaments.id': 1337
+      'user_id': 15,
+      'attachements.type': 'image'
     })
-    .where('score', '>', 0)
-    .group([
-      'real_team_memberships.id',
-      'real_team_memberships.real_team_id',
-      'position'
-    ])
+    .where('attachements.size', '>', 0)
+    .group('attachements.type')
 }
 
 console.log(
-  query('real_team_memberships')
-    .join('ranked', ranked, 'id')
+  query('posts')
+    .join('attachments', attachments, 'id')
     .order('sum DESC')
     .toString()
 )
