@@ -1,5 +1,5 @@
 {
-  "name": "pg-queries",
+  "name": "pg-query-builder",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
