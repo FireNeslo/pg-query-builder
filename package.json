@@ -1,5 +1,5 @@
 {
-  "name": "query-models",
+  "name": "pg-queries",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",

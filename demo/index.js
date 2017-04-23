@@ -1,33 +1,5 @@
-const moment = require('moment')
-const {Model, property} = require('..')
-const Query = require('../lib/query')
-const flatten = require('lodash/flattenDeep')
-
+const Query = require('..')
 const query = Query()
-
-function database(knex) {
-  return function define(Model) {
-    return new Proxy(Model, {
-      get(target, property) {
-        if(property in target) {
-          return target[property]
-        } else {
-          return query(target.tableName)[property]
-        }
-      }
-    })
-  }
-}
-
-@database(query)
-class RealTeamMembership extends Model {
-
-
-
-}
-
-
-window.RealTeamMembership = RealTeamMembership
 
 function ranked(_) {
   return query('real_team_memberships')
@@ -53,6 +25,10 @@ function ranked(_) {
       'position'
     ])
 }
+
 console.log(
-  RealTeamMembership.join('ranked', ranked, 'id').order('sum DESC').toString()
+  query('real_team_memberships')
+    .join('ranked', ranked, 'id')
+    .order('sum DESC')
+    .toString()
 )

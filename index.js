@@ -1,6 +1,8 @@
 const snakeCase = require('lodash/snakeCase')
 const pluralize = require('pluralize')
 
+exports.Query = require('./lib/query')
+
 exports.Model = class Model {
   static get className() {
     return this.displayName || this.name
@@ -45,7 +47,7 @@ exports.property = function property(...type) {
   }
 }
 
-exports.queryable = function database(knex) {
+exports.queryable = function queryable(knex) {
   return function define(Model) {
     Object.keys(knex).forEach(property => {
       if(typeof knex[property] !== 'function') return
