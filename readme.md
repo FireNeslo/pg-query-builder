@@ -24,7 +24,7 @@ A query builder made only for postgres
 <h2>Install</h2>
 
 <a href="https://npmjs.com" title="npm is a package manager for javascript"><h3>NPM</h3></a><ul>
-<li>Install: <code>npm install --save pg-query-builder</code></li>
+<li>Install: <code>npm install --save fireneslo/pg-query-builder</code></li>
 <li>Module: <code>require('pg-query-builder')</code></li></ul>
 
 <!-- /INSTALL -->
