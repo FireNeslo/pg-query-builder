@@ -13,7 +13,7 @@ function attachments(_) {
     .join('attachements', ['user_id'])
     .where({
       'user_id': 15,
-      'attachements.type': 'image'
+      'attachements.type': "'image'"
     })
     .where('attachements.size', '>', 0)
     .group('attachements.type')
