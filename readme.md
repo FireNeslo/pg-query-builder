@@ -37,24 +37,26 @@ const QueryBuilder = require('pg-query-builder')
 const query = QueryBuilder()
 
 /* simple example */
-const sql =query('users')
+const sql = query('users')
   .select('name')
   .where('name', 'ILIKE', '%Olsen%')
   .toString()
 
 
 /* using multi conditions */
-const sql =query('users')
+const sql = query('users')
   .where({ confirmed: true, username: 'fireneslo' })
   .toString()
 
 /* using joins */
-const sql =query('users')
+const sql = query('users')
   .join('posts', 'user_id')
   .toString()
 
 
 ```
+
+See demo and tests for more examples
 
 <!-- HISTORY/ -->
 
