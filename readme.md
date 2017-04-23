@@ -31,7 +31,7 @@ A query builder made only for postgres
 
 
 ## Usage
-```
+```js
 const QueryBuilder = require('pg-query-builder')
 
 const query = QueryBuilder()
